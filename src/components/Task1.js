@@ -14,7 +14,7 @@ const Task1 = () => {
   const [success, setSuccess] = useState(false);
   const highestTime = Number(localStorage.getItem("highest"));
 
-  const [first, setfirst] = useState('')
+  const [first, setfirst] = useState("");
 
   const getRandomAlphabet = () => {
     let randomAlphabet = characters.charAt(
@@ -40,8 +40,8 @@ const Task1 = () => {
     if (randomAlphabetCount > 5) {
       setStartTimer(false);
       if (time < highestTime) {
-        console.log('41');
-        setSuccess(true)
+        console.log("41");
+        setSuccess(true);
         localStorage.setItem("highest", time);
       }
     }
@@ -80,40 +80,27 @@ const Task1 = () => {
       <div style={{ display: "flex", justifyContent: "center" }}>
         <input
           autoFocus
-          value={wholeString.join("")}
+          //   value={wholeString.join("")}
+          value={first}
           onChange={(e) => {
-            setfirst(e.target.value)
-            setWholeString([...wholeString, enteredAlphabet]);
+            setfirst(e.target.value);
+            // setWholeString([...wholeString, enteredAlphabet]);
           }}
           type="text"
-          onKeyDown={(e) => {
-            setEnteredAlphabet("");
-            setResetStatus(false);
-            let key = e.key.toUpperCase();
-            if (characters.includes(key)) {
-              setEnteredAlphabet(key);
-              if (key === randomAlphabet && randomAlphabetCount <= 5) {
-                setStartTimer(true);
-                setRandomAlphabet(getRandomAlphabet());
-              } else if (key !== randomAlphabet && randomAlphabetCount <= 5) {
-                setTime((prevTime) => prevTime + 0.5 * 1000);
-              }
-            }
-          }}
-          input={(e) => {
-            setEnteredAlphabet("");
-            setResetStatus(false);
-            let key = e.key.toUpperCase();
-            if (characters.includes(key)) {
-              setEnteredAlphabet(key);
-              if (key === randomAlphabet && randomAlphabetCount <= 5) {
-                setStartTimer(true);
-                setRandomAlphabet(getRandomAlphabet());
-              } else if (key !== randomAlphabet && randomAlphabetCount <= 5) {
-                setTime((prevTime) => prevTime + 0.5 * 1000);
-              }
-            }
-          }}
+          //   onKeyDown={(e) => {
+          //     setEnteredAlphabet("");
+          //     setResetStatus(false);
+          //     let key = e.key.toUpperCase();
+          //     if (characters.includes(key)) {
+          //       setEnteredAlphabet(key);
+          //       if (key === randomAlphabet && randomAlphabetCount <= 5) {
+          //         setStartTimer(true);
+          //         setRandomAlphabet(getRandomAlphabet());
+          //       } else if (key !== randomAlphabet && randomAlphabetCount <= 5) {
+          //         setTime((prevTime) => prevTime + 0.5 * 1000);
+          //       }
+          //     }
+          //   }}
         />
         <button
           onClick={() => {
