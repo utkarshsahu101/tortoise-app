@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const charactersLength = characters.length;
-
 const Task2 = () => {
   const [wholeString, setWholeString] = useState([]);
   const [randomList, setRandomList] = useState([]);
   const [index, setIndex] = useState(0);
   const [success, setSuccess] = useState(false);
   const besttimer = Number(localStorage.getItem("bestTimer"));
+
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const charactersLength = characters.length;
 
   //   time
   const [time, setTime] = useState(0);
@@ -21,7 +21,6 @@ const Task2 = () => {
         setTime((prevTime) => prevTime + 10);
       }, 10);
     } else if (!running) {
-      console.log(index);
       if (besttimer && time < besttimer && index === 5)
         localStorage.setItem("bestTimer", time);
       clearInterval(interval);
@@ -30,9 +29,9 @@ const Task2 = () => {
   }, [running]);
 
   const getRandomAlphabets = () => {
-    let randomAlphabet = characters.charAt(
-      Math.floor(Math.random() * charactersLength)
-    );
+    let i = Math.floor(Math.random() * charactersLength);
+    let randomAlphabet = characters[i];
+    characters.splice(1, randomAlphabet);
     return randomAlphabet;
   };
 
