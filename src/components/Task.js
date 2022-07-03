@@ -33,7 +33,6 @@ const Task = () => {
   const getRandomAlphabets = () => {
     let i = Math.floor(Math.random() * charactersLength);
     let randomAlphabet = characters[i];
-    characters.splice(1, randomAlphabet);
     return randomAlphabet;
   };
 
