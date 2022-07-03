@@ -82,7 +82,7 @@ const Task1 = () => {
           onChange={(e) => {
             setWholeString([...wholeString, enteredAlphabet]);
           }}
-          type="tel"
+          type="text"
           onKeyDown={(e) => {
             setEnteredAlphabet("");
             setResetStatus(false);
