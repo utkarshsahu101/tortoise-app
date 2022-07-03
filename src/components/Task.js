@@ -25,6 +25,9 @@ const Task = () => {
     } else if (!running) {
       if (besttimer && time < besttimer && index === range)
         localStorage.setItem("bestTimer", time);
+      if (besttimer === 0) {
+        localStorage.setItem("bestTimer", time);
+      }
       clearInterval(interval);
     }
     return () => clearInterval(interval);
@@ -45,12 +48,11 @@ const Task = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem("bestTimer", Number.MAX_SAFE_INTEGER);
     list();
   }, []);
 
   useEffect(() => {
-    if (besttimer === Number.MAX_SAFE_INTEGER) {
+    if (index === range && besttimer === 0) {
       setSuccess(true);
     } else {
       if (index === range && time < besttimer) {
