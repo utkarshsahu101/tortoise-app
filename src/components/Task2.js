@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../custom.css";
 
 const Task2 = () => {
   const [wholeString, setWholeString] = useState([]);
@@ -59,22 +60,34 @@ const Task2 = () => {
   }, [index]);
 
   return (
-    <div className="App">
-      <div>
-        {index <= 4 ? randomList[index] : success ? "success" : "failure"}
+    <div className="App" style={{ height: "100vh" }}>
+      <div style={{ fontSize: "1.8rem", padding: "12px" }}>
+        Type the Alphabet
       </div>
-      <div className="numbers">
-        <span>Time: {Math.floor(time / 1000)}</span>.
-        <span>{("00" + (time % 1000)).slice(-3)}s</span>
+      <p style={{ margin: "10px" }}>
+        Typing game to see how fast you type. Timer starts when you do :)
+      </p>
+      <div className="randomLetter" style={{ borderRadius: "6px" }}>
+        <h1>
+          {index <= 4 ? randomList[index] : success ? "success" : <span style={{color: 'red'}}>failure</span>}
+        </h1>
       </div>
-      {besttimer !== Number.MAX_SAFE_INTEGER && (
+      <div style={{ margin: "25px 10px" }}>
         <div>
-          <span>my best time: {Math.floor(besttimer / 1000)}</span>.
-          <span>{("00" + (besttimer % 1000)).slice(-3)}s!</span>
+          <span>Time: {Math.floor(time / 1000)}</span>.
+          <span>{("00" + (time % 1000)).slice(-3)}s</span>
         </div>
-      )}
-      <div style={{ display: "flex", justifyContent: "center" }}>
+        {besttimer !== Number.MAX_SAFE_INTEGER && (
+          <div>
+            <span>my best time: {Math.floor(besttimer / 1000)}</span>.
+            <span>{("00" + (besttimer % 1000)).slice(-3)}s!</span>
+          </div>
+        )}
+      </div>
+      <div className="footer" style={{width: '100vw'}}>
         <input
+          className="inputbox"
+          placeholder="Type here"
           value={wholeString}
           onChange={(e) => {
             let upper = e.target.value.toUpperCase();
@@ -88,8 +101,8 @@ const Task2 = () => {
             setWholeString(upper);
           }}
         />
-
         <button
+          className="resetbtn"
           onClick={() => {
             setWholeString([]);
             setRandomList([]);

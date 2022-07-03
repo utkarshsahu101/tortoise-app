@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #0a1953;
+  color: #fff;
 }
 
 .App-logo {
@@ -35,4 +37,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+input {
+  padding: 0;
+  border: 0;
+  margin: 0;
 }
