@@ -96,6 +96,20 @@ const Task1 = () => {
               }
             }
           }}
+          input={(e) => {
+            setEnteredAlphabet("");
+            setResetStatus(false);
+            let key = e.key.toUpperCase();
+            if (characters.includes(key)) {
+              setEnteredAlphabet(key);
+              if (key === randomAlphabet && randomAlphabetCount <= 5) {
+                setStartTimer(true);
+                setRandomAlphabet(getRandomAlphabet());
+              } else if (key !== randomAlphabet && randomAlphabetCount <= 5) {
+                setTime((prevTime) => prevTime + 0.5 * 1000);
+              }
+            }
+          }}
         />
         <button
           onClick={() => {
