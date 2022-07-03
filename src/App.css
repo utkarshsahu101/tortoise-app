@@ -3,6 +3,7 @@
   background-color: #0a1953;
   color: #fff;
   height: calc(100vh - 2rem);
+  position: fixed;
 }
 
 .App-logo {
