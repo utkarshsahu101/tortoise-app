@@ -14,6 +14,8 @@ const Task1 = () => {
   const [success, setSuccess] = useState(false);
   const highestTime = Number(localStorage.getItem("highest"));
 
+  const [first, setfirst] = useState('')
+
   const getRandomAlphabet = () => {
     let randomAlphabet = characters.charAt(
       Math.floor(Math.random() * charactersLength)
@@ -80,6 +82,7 @@ const Task1 = () => {
           autoFocus
           value={wholeString.join("")}
           onChange={(e) => {
+            setfirst(e.target.value)
             setWholeString([...wholeString, enteredAlphabet]);
           }}
           type="text"
