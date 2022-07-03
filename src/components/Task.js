@@ -7,7 +7,7 @@ const Task = () => {
   const [index, setIndex] = useState(0);
   const [success, setSuccess] = useState(false);
   const besttimer = Number(localStorage.getItem("bestTimer"));
-  const range = 20
+  const range = 20;
 
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   const charactersLength = characters.length;
@@ -60,7 +60,7 @@ const Task = () => {
   }, [index]);
 
   return (
-    <div className="App" style={{ height: "100vh" }}>
+    <div className="App">
       <div style={{ fontSize: "1.8rem", padding: "12px" }}>
         Type the Alphabet
       </div>
@@ -69,7 +69,13 @@ const Task = () => {
       </p>
       <div className="randomLetter" style={{ borderRadius: "6px" }}>
         <h1>
-          {index <= (range-1) ? randomList[index] : success ? "success" : <span style={{color: 'red'}}>failure</span>}
+          {index <= range - 1 ? (
+            randomList[index]
+          ) : success ? (
+            "success"
+          ) : (
+            <span style={{ color: "red" }}>failure</span>
+          )}
         </h1>
       </div>
       <div style={{ margin: "25px 10px" }}>
@@ -84,7 +90,7 @@ const Task = () => {
           </div>
         )}
       </div>
-      <div className="footer" style={{width: '100vw'}}>
+      <div className="footer" style={{ width: "100vw" }}>
         <input
           className="inputbox"
           placeholder="Type here"
@@ -92,7 +98,7 @@ const Task = () => {
           onChange={(e) => {
             let upper = e.target.value.toUpperCase();
             if (upper.length === 1) setRunning(true);
-            if (index === range-1) {
+            if (index === range - 1) {
               setRunning(false);
             }
             if (randomList[index] === upper[upper.length - 1])

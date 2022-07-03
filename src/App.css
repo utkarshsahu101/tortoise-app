@@ -2,6 +2,7 @@
   text-align: center;
   background-color: #0a1953;
   color: #fff;
+  height: calc(100vh - 2rem);
 }
 
 .App-logo {
