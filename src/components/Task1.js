@@ -82,10 +82,12 @@ const Task1 = () => {
             setWholeString([...wholeString, enteredAlphabet]);
           }}
           type="text"
-          onKeyPress={(e) => {
+          onInput={(e) => {
+            // console.log(e.target.value);
             setEnteredAlphabet("");
             setResetStatus(false);
-            let key = e.key.toUpperCase();
+            // let key = e.key.toUpperCase();
+            let key = e.target.value.toUpperCase();
             if (characters.includes(key)) {
               setEnteredAlphabet(key);
               if (key === randomAlphabet && randomAlphabetCount <= 5) {
